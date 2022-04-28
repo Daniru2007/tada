@@ -1,0 +1,12 @@
+.item {
+    margin: 10px;
+    color: #0661bd;
+    display: flex;
+    align-items: center;
+}
+
+.css-1sszw6i-MuiButtonBase-root-MuiButton-root {
+    width: 5px !important;
+    height: 40px !important;
+    margin: 10px !important;
+}
