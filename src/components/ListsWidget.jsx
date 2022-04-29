@@ -1,10 +1,10 @@
-import "./css/List.css";
 import React, { useState } from "react";
-import Item from "./Item";
+import List from "./List";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import "./css/ListsWidget.css";
 
-function List(props) {
+function ListsWidget() {
     const [data, setData] = useState({ items: [] });
     const [topic, setTopic] = useState("");
     const addItems = (e) => {
@@ -29,35 +29,36 @@ function List(props) {
         setData({ items: items });
     };
     return (
-        <div className="list">
-            <h1>{props.name}</h1>
-            {data.items.map((item, index) => {
-                return (
-                    <div>
-                        <Item
-                            name={item.topic}
-                            index={index}
-                            delete={deleteItems}
-                            update={updateItems}
-                        />
-                    </div>
-                );
-            })}
+        <div className="listWidget">
             <form className="addItemField">
                 <TextField
                     required
                     type="text"
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
-                    label="TODO"
+                    label="TODO List"
                     variant="filled"
                 />
                 <Button type="submit" onClick={addItems} variant="contained">
                     add
                 </Button>
             </form>
+            <div className="lists">
+                {data.items.map((item, index) => {
+                    return (
+                        <div>
+                            <List
+                                name={item.topic}
+                                index={index}
+                                delete={deleteItems}
+                                update={updateItems}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }
 
-export default List;
+export default ListsWidget;

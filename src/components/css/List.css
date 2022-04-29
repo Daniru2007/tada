@@ -23,3 +23,7 @@
 .MuiFormControl-root {
     width: 500px !important;
 }
+
+*::selection {
+    background-color: #004ad3a9 !important;
+}
