@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Item from "./Item";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function List(props) {
+    const [ListTopic, setListTopic] = useState(props.name);
     const [data, setData] = useState({ items: [] });
     const [topic, setTopic] = useState("");
     const addItems = (e) => {
@@ -28,21 +30,39 @@ function List(props) {
         items[index] = { topic: name };
         setData({ items: items });
     };
+    const deleteItem = (e) => {
+        props.delete(props.index);
+    };
+    const updateListTopic = (e) => {
+        setListTopic(e.target.value);
+        props.update(props.index, e.target.value);
+    };
     return (
         <div className="list">
-            <h1>{props.name}</h1>
-            {data.items.map((item, index) => {
-                return (
-                    <div>
+            <div className="list__inputField">
+                <input
+                    type="text"
+                    value={ListTopic}
+                    onChange={updateListTopic}
+                    className="listtopic__input"
+                />
+
+                <Button color="error" variant="contained" onClick={deleteItem}>
+                    <DeleteIcon />
+                </Button>
+            </div>
+            <div className="list__todo">
+                {data.items.map((item, index) => {
+                    return (
                         <Item
                             name={item.topic}
                             index={index}
                             delete={deleteItems}
                             update={updateItems}
                         />
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
             <form className="addItemField">
                 <TextField
                     required

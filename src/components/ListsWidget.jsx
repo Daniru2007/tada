@@ -7,7 +7,7 @@ import "./css/ListsWidget.css";
 function ListsWidget() {
     const [data, setData] = useState({ items: [] });
     const [topic, setTopic] = useState("");
-    const addItems = (e) => {
+    const addLists = (e) => {
         e.preventDefault();
         if (topic === "") {
             return;
@@ -18,12 +18,12 @@ function ListsWidget() {
         setTopic("");
     };
 
-    const deleteItems = (index) => {
+    const deleteLists = (index) => {
         let items = data.items;
         items.splice(index, 1);
         setData({ items: items });
     };
-    const updateItems = (index, name) => {
+    const updateLists = (index, name) => {
         let items = data.items;
         items[index] = { topic: name };
         setData({ items: items });
@@ -39,7 +39,7 @@ function ListsWidget() {
                     label="TODO List"
                     variant="filled"
                 />
-                <Button type="submit" onClick={addItems} variant="contained">
+                <Button type="submit" onClick={addLists} variant="contained">
                     add
                 </Button>
             </form>
@@ -50,8 +50,8 @@ function ListsWidget() {
                             <List
                                 name={item.topic}
                                 index={index}
-                                delete={deleteItems}
-                                update={updateItems}
+                                delete={deleteLists}
+                                update={updateLists}
                             />
                         </div>
                     );

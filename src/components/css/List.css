@@ -27,3 +27,41 @@
 *::selection {
     background-color: #004ad3a9 !important;
 }
+
+.listtopic__input {
+    font-size: x-large;
+    outline: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #282a36;
+    border-color: transparent;
+    color: white;
+    border-style: solid;
+    transition: all 500ms;
+    box-shadow: 0px 0px 0px #606582;
+    cursor: pointer;
+}
+.listtopic__input:focus {
+    font-size: xx-large;
+    background-color: #606582;
+    box-shadow: 0px 0px 10px #606582;
+    cursor: text;
+}
+
+.list {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list__todo {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: stretch;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
