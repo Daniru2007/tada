@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    background-color: rgb(0, 21, 212);
+    top: 0;
+    right: 0px;
+    left: 0px;
+    position: fixed;
+    display: flex;
+    padding: 10px;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 20px;
+}
